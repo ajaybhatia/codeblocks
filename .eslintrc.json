@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    "meteor"
+  ],
+  "extends": [
+    "react-app",
+    "plugin:meteor/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+}
