@@ -1,13 +1,16 @@
 import { Mongo } from "meteor/mongo";
 import SimpleSchema from "simpl-schema";
 
+import Clients from "../clients/collection";
+
 SimpleSchema.extendOptions(["denyInsert"]);
 
-const MyClients = new Mongo.Collection("MyClients");
+const Tests = new Mongo.Collection("Tests");
 
-MyClients.attachSchema(
+Tests.attachSchema(
   new SimpleSchema({
     name: String,
+    clientId: String,
     createdAt: {
       type: Date,
       autoValue() {
@@ -33,4 +36,19 @@ MyClients.attachSchema(
   })
 );
 
-export default MyClients;
+Tests.addLinks({
+  client: {
+    type: "one",
+    collection: Clients,
+    field: "clientId",
+  },
+});
+
+Clients.addLinks({
+  tests: {
+    collection: Tests,
+    inversedBy: "client",
+  },
+});
+
+export default Tests;

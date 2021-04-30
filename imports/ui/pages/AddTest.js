@@ -15,8 +15,8 @@ import {
   Row,
 } from "reactstrap";
 
-import { getAllClients } from "../../api/my-clients/queries";
-import { getAllTests } from "../../api/my-tests/queries";
+import { getAllClients } from "../../api/clients/queries";
+import { getAllTests } from "../../api/tests/queries";
 
 const AddTest = () => {
   const clients = useTracker(() => {
@@ -89,7 +89,9 @@ const AddTest = () => {
         <Col md={6} className="mx-auto">
           <ListGroup>
             {tests?.map((test) => (
-              <ListGroupItem key={test._id}>{test.name}</ListGroupItem>
+              <ListGroupItem key={test._id}>
+                {test.name} - {test.client.name}
+              </ListGroupItem>
             ))}
           </ListGroup>
         </Col>

@@ -1,2 +1,2 @@
-import "../../api/my-clients";
-import "../../api/my-tests";
+import "../../api/clients";
+import "../../api/tests";

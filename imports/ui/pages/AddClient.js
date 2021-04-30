@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
-import { getAllClients } from "../../api/my-clients/queries";
+import { getAllClients } from "../../api/clients/queries";
 
 const AddClient = () => {
   const clients = useTracker(() => {

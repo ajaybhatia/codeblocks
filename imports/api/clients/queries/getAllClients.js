@@ -1,6 +1,6 @@
-import MyClients from "../collection";
+import Clients from "../collection";
 
-const getAllClients = MyClients.createQuery({
+const getAllClients = Clients.createQuery({
   name: 1,
   tests: {
     name: 1,

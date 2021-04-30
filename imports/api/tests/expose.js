@@ -1,8 +1,8 @@
 import { Meteor } from "meteor/meteor";
-import MyTests from "./collection";
+import Tests from "./collection";
 
 Meteor.startup(() => {
   if (Meteor.isServer) {
-    MyTests.expose();
+    Tests.expose();
   }
 });
