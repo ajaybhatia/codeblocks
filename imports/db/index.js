@@ -1,6 +1,5 @@
-// Import all collections
-import "/imports/db/clients/collection";
-import "/imports/db/tests/collection";
+// Import collections
+import "./collections";
 
 // Import links
 import "./links";
