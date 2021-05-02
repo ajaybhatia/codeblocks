@@ -15,8 +15,8 @@ import {
   Row,
 } from "reactstrap";
 
-import { getAllClients } from "../../api/clients/queries";
-import { getAllTests } from "../../api/tests/queries";
+import getAllClients from "/imports/api/clients/queries/getAllClients";
+import getAllTests from "/imports/api/tests/queries/getAllTests";
 
 const AddTest = () => {
   const clients = useTracker(() => {
@@ -36,8 +36,6 @@ const AddTest = () => {
       return query.fetch();
     }
   }, []);
-
-  console.log(tests);
 
   return (
     <Container>
@@ -90,7 +88,7 @@ const AddTest = () => {
           <ListGroup>
             {tests?.map((test) => (
               <ListGroupItem key={test._id}>
-                {test.name} - {test.client.name}
+                {test.name} - {test?.client?.name}
               </ListGroupItem>
             ))}
           </ListGroup>

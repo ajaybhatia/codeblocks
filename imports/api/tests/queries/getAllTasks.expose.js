@@ -1,3 +1,3 @@
 import getAllTests from "./getAllTests";
 
-export { getAllTests };
+getAllTests.expose();

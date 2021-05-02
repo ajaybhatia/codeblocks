@@ -1,3 +1,3 @@
 import getAllClients from "./getAllClients";
 
-export { getAllClients };
+getAllClients.expose();

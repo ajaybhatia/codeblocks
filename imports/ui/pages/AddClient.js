@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
-import { getAllClients } from "../../api/clients/queries";
+import getAllClients from "/imports/api/clients/queries/getAllClients";
 
 const AddClient = () => {
   const clients = useTracker(() => {
@@ -26,8 +26,6 @@ const AddClient = () => {
       return query.fetch();
     }
   }, []);
-
-  console.log(clients);
 
   return (
     <Container>
@@ -68,7 +66,15 @@ const AddClient = () => {
         <Col md={6} className="mx-auto">
           <ListGroup>
             {clients?.map((client) => (
-              <ListGroupItem key={client._id}>{client.name}</ListGroupItem>
+              <ListGroupItem
+                key={client._id}
+                className="d-flex justify-content-between"
+              >
+                <span>{client.name}</span>
+                <span>
+                  {client?.tests?.map((test) => test.name).join(", ")}
+                </span>
+              </ListGroupItem>
             ))}
           </ListGroup>
         </Col>
